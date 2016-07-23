@@ -5,8 +5,6 @@
 
 *之前对于MVP的理解有错误 之前的理解：将数据的获取（http）数据的保存等操作放在presenter里面处理，model层相当于bean（其实就是没有model），其实这样的结构只能说是MVC架构。 正确的mvp：将数据的获取等操作放在model里面，取完后回调给presenter，presenter其实应该是View和Model的桥梁，将model返回的数据回调给View。这样子才能真正实现model层和view层的解耦。*
 
-google官方demo：
-https://github.com/googlesamples/android-architecture/tree/todo-mvp/
 
 **1、在MVP模式里通常包含4个要素**
 
@@ -179,6 +177,17 @@ public class MainActivity extends AppCompatActivity implements TestContract.View
 
 到这里，MVP的框架demo就算结束了，从代码中就可以看出，model层的业务逻辑和view层一点关系都没有，都是通过presenter层来做沟通的。
 
+**说到解耦，这里还要啰嗦一下，为什么要解耦？**
+
+解耦的好处是：
+
+一、 提高可维护性。在UI逻辑发生变化甚至整个端掉都不会影响到处理逻辑。
+
+二、 提高可复用性。复用通常只数据的复用，数据逻辑不受UI的左右，由此可以服务于多个UI视图。
+
+三、 可读性。层次分清之后按照统一的架构思路去理解代码，当然还得靠开发人员良好的编程素养和代码规范。
+
+
 **另外简要讲下MVC、MVVM框架的特点**
 
 **MVC模式**
@@ -206,3 +215,4 @@ Model 将新的数据发送到 View，用户得到反馈
 
 [android MVP 架构思路](http://mp.weixin.qq.com/s?__biz=MzI1MjMyOTU2Ng==&mid=2247483865&idx=1&sn=28d3c2f12138e5db0b0245efb1825d4f#rd)
 
+[google官方demo](https://github.com/googlesamples/android-architecture/tree/todo-mvp/)
